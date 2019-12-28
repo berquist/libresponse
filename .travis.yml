@@ -1,0 +1,23 @@
+---
+language: cpp
+sudo: false
+dist: bionic
+
+addons:
+  apt:
+    packages:
+      - libarmadillo-dev
+
+compiler:
+  - clang
+  - gcc
+
+before_install:
+  - mkdir -p build
+  - cd build
+  - cmake ..
+
+install:
+  - make
+
+script:
