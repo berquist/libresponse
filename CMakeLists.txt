@@ -20,6 +20,7 @@ set(SRC
     )
 
 add_library(response STATIC ${SRC})
+target_include_directories(response PUBLIC "${ARMADILLO_INCLUDE_DIRS}")
 target_link_libraries(response "${ARMADILLO_LIBRARIES}")
 
 if(OPENMP_FOUND)
