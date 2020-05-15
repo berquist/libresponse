@@ -1,3 +1,6 @@
+*.html
+.ccls-cache/
+
 ## C++
 
 # Prerequisites
