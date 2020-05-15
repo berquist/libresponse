@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 2.8.5)
+cmake_minimum_required(VERSION 3.0)
 project(LIBRESPONSE CXX)
 
 find_package(Armadillo)
 
-set(SRC
+set(LIBRESPONSE_UNPREFIXED_SOURCES
     citations.C
     configurable.C
     dump_ao_integrals.C
@@ -18,8 +18,10 @@ set(SRC
     operator_spec.C
     set_defaults.C
     )
+include(cmake/functions.cmake)
+prepend(LIBRESPONSE_SOURCES "src" "${LIBRESPONSE_UNPREFIXED_SOURCES}")
 
-add_library(response STATIC ${SRC})
+add_library(response STATIC ${LIBRESPONSE_SOURCES})
 target_include_directories(response PUBLIC "${ARMADILLO_INCLUDE_DIRS}")
 target_link_libraries(response "${ARMADILLO_LIBRARIES}")
 

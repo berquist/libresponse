@@ -3,7 +3,7 @@
 ** Build
 
 The installation requirements are
-- CMake >= 2.8.5
+- CMake >= 3.0
 - A reasonably modern C++ compiler. GCC at least as old as 6.x should work.
 - A version of [[http://arma.sourceforge.net/][Armadillo]] that allows the project to compile.
 - [Optional] [[http://www.doxygen.org/][Doxygen]] to build documentation.
@@ -12,5 +12,5 @@ mkdir -p build
 cd build
 cmake ..
 make
-doxygen
+doxygen # output in ../docs/html
 #+end_src
