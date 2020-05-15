@@ -6,18 +6,17 @@ dist: bionic
 addons:
   apt:
     packages:
+      - doxygen
       - libarmadillo-dev
 
 compiler:
   - clang
   - gcc
 
-before_install:
+before_script:
   - mkdir -p build
   - cd build
-  - cmake ..
-
-install:
-  - make
 
 script:
+  - cmake ..
+  - make
