@@ -26,3 +26,14 @@ target_link_libraries(response "${ARMADILLO_LIBRARIES}")
 if(OPENMP_FOUND)
     set_target_properties(response PROPERTIES COMPILE_FLAGS "${OpenMP_CXX_FLAGS}")
 endif(OPENMP_FOUND)
+
+find_package(Doxygen 1.8)
+if(DOXYGEN_FOUND)
+    configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in"
+        "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile" @ONLY)
+    add_custom_target(response_docs
+        "${DOXYGEN_EXECUTABLE}" "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
+        WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+        COMMENT "Doxygen documentation" VERBATIM)
+endif(DOXYGEN_FOUND)
