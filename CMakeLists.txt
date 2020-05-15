@@ -19,7 +19,7 @@ set(LIBRESPONSE_UNPREFIXED_SOURCES
     set_defaults.C
     )
 include(cmake/functions.cmake)
-prepend(LIBRESPONSE_SOURCES "src" "${LIBRESPONSE_UNPREFIXED_SOURCES}")
+prepend(LIBRESPONSE_SOURCES "src/libresponse" "${LIBRESPONSE_UNPREFIXED_SOURCES}")
 
 add_library(response STATIC ${LIBRESPONSE_SOURCES})
 target_include_directories(response PUBLIC "${ARMADILLO_INCLUDE_DIRS}")
