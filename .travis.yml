@@ -21,3 +21,7 @@ before_script:
 script:
   - cmake ..
   - make
+  - doxygen
+
+notifications:
+  email: true
