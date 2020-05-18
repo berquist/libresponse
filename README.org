@@ -1,5 +1,21 @@
 * libresponse
 
+[[https://travis-ci.com/github/berquist/libresponse][https://api.travis-ci.com/berquist/libresponse.svg?branch=master]]
+
+A library for performing generalized molecular response calculations: it works on top of non-orthogonal orbitals with arbitrary operators.
+
+The formulation used is given in [[https://chemrxiv.org/articles/A_First_Principles_Approach_for_Partitioning_Linear_Response_Properties_into_Additive_and_Cooperative_Contributions/5773968/1]["A First Principles Approach for Partitioning Linear Response Properties into Additive and Cooperative Contributions"]].
+
+** Usage
+
+*** Q-Chem
+
+The official Q-Chem documentation is located at https://manual.q-chem.com/5.2/Ch11.S15.html.
+
+*** Psi4
+
+A plugin with build instructions is located at https://github.com/berquist/libresponse_psi4.
+
 ** Build
 
 The installation requirements are
