@@ -10,9 +10,7 @@
  * which calculates open-shell magnetic properties (electronic
  * g-tensor, hyperfine tensors).
  *
- * Currently, documentation is missing in many places.
- *
- * @authors Eric Berquist 2016--present erb74 at pitt dot edu
+ * @authors Eric Berquist 2016--present eric dot berquist at gmail dot com
  * @authors Evgeny Epifanovsky 2016
  */
 

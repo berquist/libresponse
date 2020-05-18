@@ -1,0 +1,27 @@
+---
+language: cpp
+sudo: false
+dist: bionic
+
+addons:
+  apt:
+    packages:
+      - doxygen
+      - graphviz
+      - libarmadillo-dev
+
+compiler:
+  - clang
+  - gcc
+
+before_script:
+  - mkdir -p build
+  - cd build
+
+script:
+  - cmake ..
+  - make
+  - doxygen
+
+notifications:
+  email: true

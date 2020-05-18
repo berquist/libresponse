@@ -274,6 +274,21 @@ void operator_spec::save_to_disk(int save_level, bool is_guess) {
     }
 }
 
+std::ostream& operator<<(std::ostream &stream, const operator_spec &opspec) {
+    stream << opspec.metadata;
+    stream << "\n";
+    stream << " size(integrals_ao): " << arma::size(opspec.integrals_ao);
+    stream << " size(integrals_mo_ai_alph): " << arma::size(opspec.integrals_mo_ai_alph);
+    return stream;
+}
+
+std::ostream &operator<<(std::ostream &stream, const std::vector<operator_spec> &operators) {
+    for (auto oper : operators) {
+        stream << oper << std::endl;
+    }
+    return stream;
+}
+
 std::vector<std::string> make_operator_label_vec(const std::vector<operator_spec> &operators)
 {
 

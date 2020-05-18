@@ -45,8 +45,8 @@ public:
      * Default constructor.
      */
     operator_metadata(
-        std::string &operator_label_,
-        std::string &origin_label_,
+        const std::string &operator_label_,
+        const std::string &origin_label_,
         int slice_idx_,
         bool is_imaginary_,
         bool is_spin_dependent_)
@@ -146,6 +146,9 @@ public:
         const libresponse::configurable &cfg);
 
 };
+
+std::ostream& operator<<(std::ostream &stream, const operator_spec &opspec);
+std::ostream& operator<<(std::ostream &stream, const std::vector<operator_spec> &operators);
 
 /*!
  * A shorter way to make a list of labels from a list of operators.

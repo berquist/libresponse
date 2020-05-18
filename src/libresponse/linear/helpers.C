@@ -241,9 +241,17 @@ void form_results(
     const arma::mat &vecs_response
     )
 {
+    // - Each row is corresponds to a response or gradient vector
+    // - Each column
 
+    // - The number of rows corresponds to the number of OV elements
+    // - The number of cols corresponds to the number of operator components
+    //
+    // Therefore, for <<A;B>> where A and B don't have the same number of
+    // components, the number of columns need not be identical between the
+    // property and response vectors.
     assert(vecs_property.n_rows == vecs_response.n_rows);
-    assert(vecs_property.n_cols == vecs_response.n_cols);
+    // assert(vecs_property.n_cols == vecs_response.n_cols);
     assert(results.n_rows == vecs_property.n_cols);
     assert(results.n_cols == vecs_response.n_cols);
 
@@ -419,10 +427,7 @@ void form_results(
         for (size_t j = 0; j < operators.size(); j++) {
             const operator_spec osj = operators.at(j);
             if (osj.do_response) {
-                arma::mat vecs_response_alph = osj.rspvecs_alph;
-                arma::mat vecs_response_beta;
-                if (has_beta)
-                    vecs_response_beta = osj.rspvecs_beta;
+                const arma::mat vecs_response_alph = osj.rspvecs_alph;
                 arma::mat results_ij_alph(vecs_property_alph.n_cols, vecs_response_alph.n_cols);
                 if (indices_mo)
                     form_results(results_ij_alph, vecs_property_alph, vecs_response_alph, indices_mo->at(0));
@@ -431,6 +436,7 @@ void form_results(
                 // results_ij_alph.print("results_ij_alph");
                 result_blocks_alph.push_back(results_ij_alph);
                 if (has_beta) {
+                    const arma::mat vecs_response_beta = osj.rspvecs_beta;
                     arma::mat results_ij_beta(vecs_property_beta.n_cols, vecs_response_beta.n_cols);
                     if (indices_mo)
                         form_results(results_ij_beta, vecs_property_beta, vecs_response_beta, indices_mo->at(1));

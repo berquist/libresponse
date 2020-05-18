@@ -432,10 +432,7 @@ double _calc_matrix_anisotropy(const arma::mat &m)
         throw std::runtime_error("in _calc_matrix_anisotropy: matrix is not square");
 
     const double iso = arma::mean(arma::eig_sym(m));
-    double aniso = arma::accu(m % m);
-    aniso = std::sqrt(std::abs(1.5*(aniso - (3.0*iso*iso))));
-
-    return aniso;
+    return std::sqrt(std::abs(1.5*(arma::accu(m % m) - (3.0*iso*iso))));
 }
 
 void print_polarizability(std::ostringstream &os, const arma::mat &polar_tensor)
